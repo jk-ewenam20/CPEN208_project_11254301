@@ -26,7 +26,7 @@ const SignIn = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="min-h-screen flex items-center justify-center bg-slate-100">
+      <div className="min-h-screen flex items-center justify-center hero-overlay">
         <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
           <h1 className="text-2xl font-serif mb-4">Sign In</h1>
           <form onSubmit={handleSignIn}>
