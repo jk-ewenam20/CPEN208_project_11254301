@@ -1,20 +1,20 @@
-'use client'
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { useState } from "react";
 
+const handleSignIn = (e: any) => {
+  e.preventDefault();
+  // Implement your sign-in logic here
 
-
-const handleSignIn = (e:any) => {
-    e.preventDefault();
-    // Implement your sign-in logic here
-  };
-
+};
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  console.log(password, email)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  console.log(password, email);
 
   return (
     <div
@@ -56,8 +56,12 @@ const SignIn = () => {
                 required
               />
             </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-info font-serif" >Login</button>
+            <div className="form-control mt-6 items-center">
+              <Link href="/dashboard">
+                <button className="btn btn-wide btn-info font-serif" type="submit">
+                  Login
+                </button>
+              </Link>
             </div>
             <label className="label">
               <a href="#" className="label-text-alt link link-hover font-serif">
