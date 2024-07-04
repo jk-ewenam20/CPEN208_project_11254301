@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-
 import { useState } from "react";
 
 const handleSignIn = (e: any) => {
@@ -29,7 +27,9 @@ const SignIn = () => {
       <div className="min-h-screen flex items-center justify-center hero-overlay">
         <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
           <h1 className="text-2xl font-serif mb-4">Sign In</h1>
-          <form onSubmit={handleSignIn}>
+          <form onSubmit={handleSignIn} action={async (formData) => {
+            // "use server"
+          }}>
             <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-serif">
                 Email
