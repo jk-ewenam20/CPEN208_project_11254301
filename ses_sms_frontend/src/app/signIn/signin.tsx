@@ -15,7 +15,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   console.log(password, email);
-
+  const router = useRouter();
   return (
     <div
       className="content-stretch"
@@ -56,12 +56,10 @@ const SignIn = () => {
                 required
               />
             </div>
-            <div className="form-control mt-6 items-center">
-              <Link href="/dashboard">
-                <button className="btn btn-wide btn-info font-serif" type="submit">
+            <div className="form-control mt-6">
+                <button className="btn btn-info font-serif" type="submit" onClick={()=> router.push('/dashboard')}>
                   Login
                 </button>
-              </Link>
             </div>
             <label className="label">
               <a href="#" className="label-text-alt link link-hover font-serif">
