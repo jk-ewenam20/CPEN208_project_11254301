@@ -1,8 +1,11 @@
+import { getServerSession } from "next-auth";
 import RegisterForm from "./registerform";
+import { redirect } from "next/navigation";
 
 export default async function signUp() {
-  return (
-    <RegisterForm/>
-  )
-
+  const session = await getServerSession();
+  if (session) {
+    redirect("/dashboard");
+  }
+  return <RegisterForm />;
 }

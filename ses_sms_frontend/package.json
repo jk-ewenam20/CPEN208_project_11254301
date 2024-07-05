@@ -15,6 +15,7 @@
     "@types/password": "^0.1.2",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "client-component": "^1.0.1",
     "date-fns": "^3.6.0",
     "lucide-react": "^0.394.0",
     "next": "14.2.3",

@@ -7,6 +7,10 @@ const handler = NextAuth({
   session: {
     strategy: "jwt",
   },
+  pages: {
+    signIn: "/signIn",
+    signOut: "/signIn"
+  },
   providers: [
     Credentials({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
@@ -20,7 +24,7 @@ const handler = NextAuth({
         const endpoint = `http://localhost:20201/api/students/${credentials?.id}`;
         const response = axios.get(endpoint);
         const rawPassword = (await credentials?.password) || "";
-        const hashed = await bcrypt.hash(rawPassword || "", 10);
+        // const hashed = await bcrypt.hash(rawPassword || "", 10);
         const match = await bcrypt.compare(
           rawPassword,
           (

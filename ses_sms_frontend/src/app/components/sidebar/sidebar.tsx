@@ -8,7 +8,6 @@ import {
   Wallet,
   Book,
   LucideIcon,
-  LogOutIcon,
 } from "lucide-react";
 import Sidebaritem from "./item";
 import SidebarItem from "./item";
@@ -45,11 +44,6 @@ const items: Sidebaritem[] = [
     name: "Register Courses",
     path: "/dashboard/register_courses",
     icon: Book,
-  },
-  {
-    name: "Log Out",
-    icon: LogOutIcon,
-    path: "/signIn",
   },
 ];
 const Sidebar = () => {
