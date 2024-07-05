@@ -9,17 +9,15 @@ import { z } from "zod";
 import { useRouter } from "next/navigation";
 
 const schema = z.object({
-  ID: z.number().min(8).max(8),
-  firstName: z.string().nonempty("Name is required"),
-  lastname: z.string().min(3, { message: "" }),
+  ID: z.number({ required_error: "ID is required" }).min(8).max(8),
+  firstName: z.string({ required_error: "First name is required" }),
+  lastname: z.string({ required_error: "Last name is required" }),
   email: z
-    .string()
-    .email("Invalid email address")
-    .nonempty("Email is required"),
+    .string({ required_error: "Email is required" })
+    .email("Invalid email address"),
   password: z
     .string()
-    .min(8, "Password must be at least 8 characters")
-    .nonempty("Password is required"),
+    .min(8, "Password must be at least 8 characters"),
   dob: z.date(),
   othernames: z.string().optional(),
 });
@@ -60,9 +58,10 @@ const RegisterForm = () => {
               },
             }
           );
+          
           if (response.status === 200) {
             router.push('/signIn');
-
+            // reset();
           } else {
             
           }
@@ -94,6 +93,8 @@ const RegisterForm = () => {
                       placeholder="ID"
                       className="input input-bordered"
                     />
+                    {errors.ID && <p>{errors.ID.message}</p>}
+
                   </div>
                   <div className="form-control">
                     <label className="label" htmlFor="firstName">
@@ -105,7 +106,10 @@ const RegisterForm = () => {
                       id="firstName"
                       placeholder="First Name"
                       className="input input-bordered"
+
                     />
+                    {errors.firstName && <p>{errors.firstName.message}</p>}
+
                   </div>
                   <div className="form-control">
                     <label className="label" htmlFor="otherNames">
@@ -130,6 +134,8 @@ const RegisterForm = () => {
                       placeholder="Last Name"
                       className="input input-bordered"
                     />
+                    {errors.lastname && <p>{errors.lastname.message}</p>}
+
                   </div>
                   <div className="form-control">
                     <label className="label" htmlFor="dOB">
@@ -144,6 +150,8 @@ const RegisterForm = () => {
 
 
                     />
+                    {errors.dob && <p>{errors.dob.message}</p>}
+
                   </div>
                   <label
                     className="input input-bordered flex items-center gap-2 mt-5"
@@ -166,6 +174,8 @@ const RegisterForm = () => {
                       placeholder="Email"
                       id="email"
                     />
+                    {errors.email && <p>{errors.email.message}</p>}
+
                   </label>
                 </div>
                 <div className="form-control">
@@ -179,6 +189,8 @@ const RegisterForm = () => {
                     placeholder="password"
                     className="input input-bordered"
                   />
+                  {errors.password && <p>{errors.password.message}</p>}
+
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-info font-serif" type="submit">

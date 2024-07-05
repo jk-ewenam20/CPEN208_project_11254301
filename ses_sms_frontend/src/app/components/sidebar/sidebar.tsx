@@ -17,7 +17,7 @@ interface Sidebaritem {
   name: string;
   icon: LucideIcon;
   path: string;
-  items?: SubItem[];
+  // onClick: VoidFunction;
 }
 
 interface SubItem {
