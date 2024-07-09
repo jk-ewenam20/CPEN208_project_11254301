@@ -9,6 +9,7 @@ const SignIn = () => {
   const [id, setID] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  // const {mutate: signIn, isLoading} = useSignin();
   const handleSignIn = async (e: FieldValues) => {
     e.preventDefault();
     // Implement your sign-in logic here
@@ -20,7 +21,7 @@ const SignIn = () => {
     });
     console.log({ res });
     if (!res?.error) {
-      router.push("/dashboard");
+      router.push("/dashboard/home");
       router.refresh();
     }
   };

@@ -9,7 +9,25 @@ const handler = NextAuth({
   },
   pages: {
     signIn: "/signIn",
-    signOut: "/signIn"
+  },
+  callbacks: {
+    async jwt({token, user}) {
+      if(user) {
+        token.id = user.id;
+        token.firstName = user.firstName;
+      }
+      return token;
+
+    },
+    async session({session, token}) {
+      if(session.user) {
+        session.user.id = token.id as string;
+        session.user.firstName = token.firstName as string;
+      }
+      console.log(session);
+      return session;
+      
+    }
   },
   providers: [
     Credentials({
@@ -32,26 +50,18 @@ const handler = NextAuth({
           ).data.password
         );
         console.log((await response).data.password);
+        console.log((await response).data)
         console.log(rawPassword);
         console.log({ match });
         if (match) {
           return {
-            id: (await response).data.id,
+            id: (await response).data.student_id,
             email: (await response).data.email,
+            firstName: (await response).data.firstName,
+            lastName: (await response).data.lastName,
+            otherNames: (await response).data.other_names,
           };
         }
-        // const res = await fetch("/your/endpoint", {
-        //   method: 'POST',
-        //   body: JSON.stringify(credentials),
-        //   headers: { "Content-Type": "application/json" }
-        // })
-        // const user = await res.json()
-
-        // // If no error and we have user data, return it
-        // if (res.ok && user) {
-        //   return user
-        // }
-        // // Return null if user data could not be retrieved
         return null;
       },
     }),

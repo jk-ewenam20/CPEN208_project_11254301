@@ -6,7 +6,7 @@ import React from "react";
 
 const NavBar = () => {
   const handleClick = () => {
-    signOut();
+    signOut({callbackUrl: "http://localhost3000/signIn"});
   };
   return (
     <div className="navbar">
