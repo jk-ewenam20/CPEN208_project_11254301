@@ -57,7 +57,6 @@ const RegisterForm = () => {
 
       if (response.status === 201) {
         window.location.href = "/signIn";
-        // reset();
       } else {
         return <span>Error creating account (User)</span>;
       }
@@ -185,6 +184,12 @@ const RegisterForm = () => {
                 Register
               </button>
             </div>
+            <p className="mt-4 font-serif">
+              Already have an account?{" "}
+              <a href="/signIn" className="text-blue-500">
+                Sign In
+              </a>
+            </p>
           </form>
         </div>
       </div>

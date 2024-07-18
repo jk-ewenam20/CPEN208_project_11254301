@@ -14,9 +14,9 @@ const CustomLayout: React.FC<CustomLayoutProps> = async ({ children }) => {
       {!!session && (
         <SessionProviderClientComponent session={session}>
           <div className="flex h-screen w-full bg-gray-200">
-            <Sidebar />
-            <div className="flex flex-col w-full h-full ml-64 p-4">
-              <NavBar />
+            <div className="flex flex-col w-full h-full p-4">
+              <Sidebar />
+              {/* <NavBar /> */}
               <main>{children}</main>
             </div>
           </div>
