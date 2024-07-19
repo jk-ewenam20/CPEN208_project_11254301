@@ -9,6 +9,7 @@ import {
   Book,
   LucideIcon,
   LogOutIcon,
+  UserCircle,
 } from "lucide-react";
 import Sidebaritem from "./item";
 import SidebarItem from "./item";
@@ -87,8 +88,12 @@ const Sidebar = () => {
               {items.map((item) => (
                 <SidebarItem key={item.path} item={item} />
               ))}
+              <div className="avatar">
+                <UserCircle className="w-10 h-10 ml-6 rounded-full"/>
+                
+              </div>
               <button
-                className="icon-button btn-ghost btn"
+                className="icon-button btn-ghost btn ml-5 hover:text-sky-900 hover:bg-slate-300"
                 onClick={handleClick}
               >
                 <LogOutIcon />
@@ -105,12 +110,16 @@ const Sidebar = () => {
         ></label>
         <ul className="menu fixed top-0 h-screen w-64 bg-white shadow-lg z-10 p-6">
           {/* Sidebar content here */}
+          <div className="avatar">
+                <UserCircle className="w-20 h-20 ml-6 rounded-full mb-10"/>
+                
+              </div>
           <li>
             {items.map((item) => (
               <SidebarItem key={item.path} item={item} />
             ))}
-            <button className="icon-button btn-ghost btn" onClick={handleClick}>
-              <LogOutIcon />
+            <button className="icon-button btn-ghost btn hover:text-sky-900 hover:bg-slate-300" onClick={handleClick}>
+              <LogOutIcon/>
               Logout
             </button>
           </li>

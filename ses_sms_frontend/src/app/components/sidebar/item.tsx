@@ -25,7 +25,7 @@ const SidebarItem = ({ item }: { item: Sidebaritem }) => {
   const isActive = useMemo(() => { return path === pathname;}, [path, pathname])
   return (
     <div
-      className={`flex items-center space-x-2 p-3 rounded-lg hover:bg-slate-300 cursor-pointer hover:text-sky-900 ${isActive && "text-sky-900 bg-sidebar-active"}`}
+      className={`flex items-center space-x-2 p-3 rounded-lg ml-5 mb-4 hover:bg-slate-300 cursor-pointer hover:text-sky-900 ${isActive && "text-sky-900 bg-sidebar-active"}`}
       onClick={onClick}
     >
       <Icon size={22} />

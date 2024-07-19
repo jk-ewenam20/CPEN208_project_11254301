@@ -15,6 +15,10 @@ const handler = NextAuth({
       if(user) {
         token.id = user.id;
         token.firstName = user.firstName;
+        token.lastName = user.lastName;
+        token.otherNames = user.otherNames;
+        token.dOB = user.dOB;
+        token.email = user.email
       }
       return token;
 
@@ -23,6 +27,10 @@ const handler = NextAuth({
       if(session.user) {
         session.user.id = token.id as string;
         session.user.firstName = token.firstName as string;
+        session.user.lastName = token.lastName as string;
+        session.user.otherNames = token.otherNames as string;
+        session.user.dOB = token.dOB as string;
+        session.user.email = token.email as string;
       }
       console.log(session);
       return session;
@@ -60,6 +68,7 @@ const handler = NextAuth({
             firstName: (await response).data.firstName,
             lastName: (await response).data.lastName,
             otherNames: (await response).data.other_names,
+            dOB: (await response).data.d_o_b,
           };
         }
         return null;
