@@ -16,9 +16,9 @@ public class Finance_services {
     private db_settings cls_db_config;
 
     @GetMapping("{id}")
-    public String student_and_courses(@PathVariable("id") String json_request){
+    public String student_and_courses(@PathVariable("id") long res_student_id){
         fin_info.con = cls_db_config.getCon();
-        String result = fin_info.get_student_and_financial_info(json_request);
+        String result = fin_info.get_student_and_financial_info(res_student_id);
         return result;
     }
 

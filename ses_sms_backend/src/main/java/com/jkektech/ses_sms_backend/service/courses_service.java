@@ -22,19 +22,4 @@ public class courses_service {
         return result;
     }
 
-//    @PostMapping("/student_add_course/{id}")
-//    public String post_course(@RequestBody String json_request){
-//        course_l.con = cls_db_config.getCon();
-//        String result = course_l.add_course(json_request);
-//        return result;
-//    }
-//
-//    @GetMapping("/student_and_courses/{id}")
-//    public String student_and_courses(@PathVariable("id") Long student_id){
-//        course_l.con = cls_db_config.getCon();
-//        String result = course_l.get_student_and_course(student_id);
-//        System.out.println(result);
-//        return result;
-//
-//    }
 }
