@@ -13,7 +13,7 @@ import lombok.Setter;
 public class StudentCourseDto {
 
     private Long registration_id;
-    private Long student_id;
+    private String student_id;
     private String course_code;
     private String course_title;
     private Long credits;

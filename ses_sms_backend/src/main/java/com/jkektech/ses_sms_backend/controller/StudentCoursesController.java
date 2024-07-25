@@ -26,7 +26,7 @@ public class StudentCoursesController {
 
     @CrossOrigin(origins = "*")
     @GetMapping("{id}")
-    public List<StudentCourses> studentCourses(@PathVariable("id") Long studentId) {
+    public List<StudentCourses> studentCourses(@PathVariable("id") String studentId) {
         return this.studentCourseService.studentGetCourse(studentId);
     }
 

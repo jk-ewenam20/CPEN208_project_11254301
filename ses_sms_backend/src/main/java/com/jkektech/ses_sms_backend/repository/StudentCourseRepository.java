@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface StudentCourseRepository extends JpaRepository<StudentCourses, Long> {
+public interface StudentCourseRepository extends JpaRepository<StudentCourses, String> {
 
     @Query(value = "SELECT * FROM st_reg_course WHERE student_id=?", nativeQuery = true)
-    List<StudentCourses> findStudentCourses(Long studentId);
+    List<StudentCourses> findStudentCourses(String studentId);
 }

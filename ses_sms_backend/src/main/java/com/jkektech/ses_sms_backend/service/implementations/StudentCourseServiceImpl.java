@@ -23,7 +23,7 @@ public class StudentCourseServiceImpl implements StudentCourseService {
     }
 
     @Override
-    public List<StudentCourses> studentGetCourse(Long studentId) {
+    public List<StudentCourses> studentGetCourse(String studentId) {
 
         return (List<StudentCourses>) studentCourseRepository.findStudentCourses(studentId);
     }

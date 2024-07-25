@@ -15,6 +15,8 @@ public class courses_service {
     @Autowired
     private db_settings cls_db_config;
 
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/list_of_courses")
     public String list_of_courses(){
         course_l.con = cls_db_config.getCon();

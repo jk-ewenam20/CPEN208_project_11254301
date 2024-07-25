@@ -8,5 +8,5 @@ import java.util.List;
 public interface StudentCourseService {
     StudentCourseDto studentAddCourse(StudentCourseDto studentCourseDto);
 
-    List<StudentCourses> studentGetCourse(Long studentId );
+    List<StudentCourses> studentGetCourse(String studentId );
 }

@@ -23,7 +23,7 @@ public class StudentCourses {
     private Long registration_id;
 
     @Column(name = "student_id")
-    private Long student_id;
+    private String student_id;
 
     @Column(name = "course_code")
     private String course_code;
